@@ -7,19 +7,24 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TexBoxTests extends TestBase {
 
+    String userName = "Maple Leaf";
+    String userEmail = "maple@leaf.com";
+    String currentAddress  = "first address 1";
+    String permanentAddress = "second address 2";
+
     @Test
     void successfulFillFormTest() {
         open("/text-box");
-        $("[id=userName]").setValue("Maple Leaf");
-        $("[id=userEmail]").setValue("maple@leaf.com");
-        $("[id=currentAddress]").setValue("first address 1");
-        $("[id=permanentAddress]").setValue("second address 2");
+        $("[id=userName]").setValue(userName);
+        $("[id=userEmail]").setValue(userEmail);
+        $("[id=currentAddress]").setValue(currentAddress);
+        $("[id=permanentAddress]").setValue(permanentAddress);
         $("[id=submit]").click();
 
-        $("[id=output] [id=name]").shouldHave(text("Maple Leaf"));
-        $("[id=output] [id=email]").shouldHave(text("maple@leaf.com"));
-        $("[id=output] [id=currentAddress]").shouldHave(text("first address 1"));
-        $("[id=output] [id=permanentAddress]").shouldHave(text("second address 2"));
+        $("[id=output] [id=name]").shouldHave(text(userName));
+        $("[id=output] [id=email]").shouldHave(text(userEmail));
+        $("[id=output] [id=currentAddress]").shouldHave(text(currentAddress));
+        $("[id=output] [id=permanentAddress]").shouldHave(text(permanentAddress));
 
 
     }
