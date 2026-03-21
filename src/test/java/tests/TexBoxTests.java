@@ -1,26 +1,27 @@
 package tests;
 
-import org.junit.jupiter.api.BeforeEach;
+//import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static tests.testdata.TestData.*;
 
 public class TexBoxTests extends TestBase {
 
-    String userName;
-    String userEmail;
-    String currentAddress;
-    String permanentAddress ;
-
-    @BeforeEach
-    public void setup() {
-        // userName = getRandomString(10);
-        userName = "Maple Leaf";
-        userEmail = "maple@leaf.com";
-        currentAddress  = "first address 1";
-        permanentAddress = "second address 2";
-    }
+//    String userName;
+//    String userEmail;
+//    String currentAddress;
+//    String permanentAddress ;
+//
+//    @BeforeEach
+//    public void setup() {
+//        // userName = getRandomString(10);
+//        userName = "Maple Leaf";
+//        userEmail = "maple@leaf.com";
+//        currentAddress  = "first address 1";
+//        permanentAddress = "second address 2";
+//    }
 
     @Test
     void successfulFillFormTest() {
