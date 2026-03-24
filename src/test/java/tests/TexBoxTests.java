@@ -1,26 +1,28 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
+import pages.TextBoxPage;
 
 public class TexBoxTests extends TestBase {
+    TextBoxPage textBoxPage = new TextBoxPage();
 
     @Test
     void successfulFillFormTest() {
-        open("/text-box");
-        $("[id=userName]").setValue("Maple Leaf");
-        $("[id=userEmail]").setValue("maple@leaf.com");
-        $("[id=currentAddress]").setValue("first address 1");
-        $("[id=permanentAddress]").setValue("second address 2");
-        $("[id=submit]").click();
+        String boxUserName = "Maple Leaf";
+        String boxUserEmail = "maple@leaf.com";
+        String boxCurrentAddress = "first address 1";
+        String boxPermanentAddress = "second address 2";
 
-        $("[id=output] [id=name]").shouldHave(text("Maple Leaf"));
-        $("[id=output] [id=email]").shouldHave(text("maple@leaf.com"));
-        $("[id=output] [id=currentAddress]").shouldHave(text("first address 1"));
-        $("[id=output] [id=permanentAddress]").shouldHave(text("second address 2"));
-
+        textBoxPage.openPage()
+                .typeUserName(boxUserName)
+                .typeUserEmail(boxUserEmail)
+                .typeCurrentAddress(boxCurrentAddress)
+                .typePermanentAddress(boxPermanentAddress)
+                .submitForm()
+                .checkField("name", boxUserName)
+                .checkField("email", boxUserEmail)
+                .checkField("currentAddress", boxCurrentAddress)
+                .checkField("permanentAddress", boxPermanentAddress);
 
     }
 }
